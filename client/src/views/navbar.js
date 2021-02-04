@@ -90,7 +90,7 @@ class Navbar extends Component{
                     <img src={ Logo } alt="IIIT.com" width="120" height="24"/>
                 </Link>
                 <div className="contain mobile-display">
-                                <button className="btn set-item">
+                                <button className="btn set-item" onClick={()=>{this.props.history.push('/productsInCart')}}>
                                     <img src={ Cart } alt="Cinque Terre" width="35" height="25"/>
 	        						{this.props.state.isLoggedIn ? <div class="center" >{this.props.state.user.productsInCart.length}</div> :<></>}
                                 </button>
