@@ -23,7 +23,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-mongoose.connect(keys.uri, { useNewUrlParser: true }, { useUnifiedTopology: true })
+mongoose.connect(process.env.URI || keys.uri, { useNewUrlParser: true }, { useUnifiedTopology: true })
         .then(() => console.log('mongoDB connnected'))
         .catch((err) => console.log('error occured ' + err));
 
