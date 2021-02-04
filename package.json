@@ -1,0 +1,33 @@
+{
+  "name": "ecom",
+  "version": "1.0.0",
+  "description": "Winter-Project",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon serevr.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Jayant",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.11.8",
+    "mongoose-unique-validator": "^2.0.3",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "path": "^0.12.7",
+    "razorpay": "^2.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
