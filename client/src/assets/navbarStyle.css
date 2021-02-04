@@ -1,0 +1,150 @@
+.Navbar{
+    position: sticky;
+    top:0;
+    z-index: 99;
+}
+
+.center {
+  position: absolute;
+  top:10px;
+  left:31.5px;
+  transform: translate(-50%,-50%);
+  color: #8cfffb;
+  font-weight: 650;
+}
+nav{
+  box-shadow: 0.5px 0.5px 8px 0px #d3d3d2;
+  background-color: #465052;
+
+}
+
+.contain{
+  position: relative;
+}
+
+.contain button{
+  background-color: transparent;
+  border: none;
+}
+
+.mobile-display{
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+  .center{
+    position: absolute;
+    top:10px;
+    left:32px;
+  }
+  .set-display{
+    display: none;
+  }
+  .mobile-display{
+    display: block;
+  }
+}
+
+.set-item{
+  margin-right:0 ;
+}
+
+
+.control-input{
+  margin-right: 0px;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-right: none;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.control-button{
+  margin-right: 0px;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  
+  border-left: none;
+  border-radius: 0px 5px 5px 0px;
+}
+
+
+.sidebar-toggler{
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #8cfffb;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar{
+  box-sizing: border-box;
+  height: 100%;
+  width: 250px;
+  padding: 15px;
+  position: relative;
+  background-color: #465052;
+  color: #8cfffb;
+  box-shadow: 0.5px 0.5px 10px 0px #d3d3d2;
+  top:0px;
+  left:-258px;
+  transition: 0.5s;
+  z-index: 100;
+  overflow-y: scroll;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-head{
+  font-size: 2rem;
+  width: 200px;
+  padding:20px 0px 20px 10px;
+}
+.sidebar-body:hover{
+  background-color:#677578;
+}
+.sidebar-body{
+  padding:20px 0px 20px 10px;
+  font-size: 1.5rem;
+}
+.close-sidebar{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 15px;
+  left: 215px;
+  cursor: pointer;
+}
+
+@media screen and (max-width:769px){
+  .sidebar-head{
+    font-size: 1.3rem;
+  }
+  .sidebar-body{
+    font-size: 1rem;
+    padding:10px 0px 10px 10px;
+  }
+}
+
+@media screen and (max-width:317px){
+  .control-input{
+    width:190px;
+  }
+  
+}

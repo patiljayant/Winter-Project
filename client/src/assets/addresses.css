@@ -1,0 +1,46 @@
+.address{
+    width: 60%;
+    min-width: 260px;
+    padding: 2%;
+    box-sizing: border-box;
+    margin: auto;
+    background-color: #f8f9fa;
+    border-radius: 2px; 
+}
+
+.address-card{
+    box-sizing: border-box;
+    margin: auto;
+    margin-bottom: 2%;
+    width: 100%;
+    min-width: 250px;
+    background-color: white;
+    border-radius: 1px;
+    padding: 2%;
+    box-shadow: 0.5px 0.5px 8px 0px #d3d3d2;
+}
+.head{
+    font-size: 28px;
+    width: inherit;
+}
+.text-sm{
+    font-size: 10px;
+    margin:0;
+}
+
+@media screen and (max-width:768px){
+    .address-card{
+        font-size: 11px;
+    }
+    .btn-responsive{
+        height: 22px;
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+    .text-sm{
+        font-size: 7.5px;
+    }
+    .head{
+        font-size: 21px;
+    }
+}

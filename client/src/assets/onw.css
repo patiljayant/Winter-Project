@@ -1,0 +1,25 @@
+.onw{
+   min-height: 60vh;
+}
+
+.onw-card{
+    box-shadow: 0.5px 0.5px 8px 0px #d3d3d2;
+    margin-bottom: 5px;
+}
+.col-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:576px) and (max-width:769px){
+    .onw-card{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:577px){
+    .onw-card{
+        font-size: 10px;
+    }
+}

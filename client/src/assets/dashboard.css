@@ -1,0 +1,45 @@
+.dp{
+    position: relative;
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.dashboard-small{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0.5px 0.5px 8px 0px #d3d3d2;
+}
+.dashboard{
+    display: flex;
+    flex-wrap:wrap;
+}
+.posi-btn{
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    left: 75px;
+    border: none;
+    background-color: white;
+    border-radius: 10px 10px 50% 50%;
+}
+.user-info{
+    padding: 20px;
+    font-size: 1.2rem;
+    box-shadow: 0.5px 0.5px 8px 0px #d3d3d2;
+}
+
+@media screen and (max-width:768px){
+    .user-info{
+        font-size: 12px;
+    }
+    .user-info button {
+        height:24px;
+        padding:2px 5px;
+        width: auto;
+        font-size: 12px;
+    }
+    
+    
+}

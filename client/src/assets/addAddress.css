@@ -1,0 +1,13 @@
+.add-address {
+    background-color: #f8f9fa;
+    width: 60%;
+    margin:auto;
+    padding: 2%;
+    border-radius: 5px;
+    min-width: 250px;
+}
+.add-address h3 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+}
