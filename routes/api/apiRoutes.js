@@ -147,7 +147,7 @@ router.post('/register', (req,res) => {
                 from: 'iiit.com.help@gmail.com',
                 to: newTempUser.username,
                 subject: 'Email Verification',
-                text: 'http://localhost:3000/'+ newTempUser._id +'/verify'
+                text: 'https://iiit-com.herokuapp.com/'+ newTempUser._id +'/verify'
               };
               
               transporter.sendMail(mailOptions, function(error, info){
