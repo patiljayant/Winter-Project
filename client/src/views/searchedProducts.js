@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import {Link,NavLink} from 'react-router-dom';
 import Navbar from './navbar.js'
 import '../assets/homeStyle.css';
+import Drop from '../assets/chevron-down-outline.svg';
 
 class Search extends Component{
 
    componentDidMount(pre){
        console.log('sucess')
         this.props.search(this.props.match.params.value);
-   }
+   } 
 
    componentDidUpdate(pre){
     console.log(pre)
@@ -35,21 +36,25 @@ class Search extends Component{
         this.props.sortRatingSearch();
     }
 
+    calculateRating = (p) => {
+        var sum = 0;
+        for(var i=0;i<p.rating.length;i++){
+            sum+=p.rating[i];
+        }
+        return sum/p.rating.length;
+    }
+
     render(){
-        // if(this.state.preValue !== this.props.match.params.value){
-        //     this.props.search(this.props.match.params.value);
-        //     console.log(true)
-        //     console.log(this.props.products)
-        //     this.setState({
-        //         preValue: this.props.match.params.value
-        //     })
-        // }
-        // console.log(this.props.products)
         const products = this.props.products;
         const sort = products.length ? (<div className="mld ">
         <div className="ldiv">
-            <span>SORT BY</span><br/>
+            <span>SORT BY</span>
+            <div class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#sortDropDown" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <img className="adjust-dropdown" src={Drop} />
+            </div>
+            <br/>
             <div class="dropdown-divider"></div>
+            <div class="collapse navbar-collapse" id="sortDropDown">
             <ul className="navbar-nav">
             <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,28 +77,38 @@ class Search extends Component{
         </a>
       </li>
       </ul>
+      </div>
         </div>
+        <br/>
     </div>):(<div></div>)
         const productList = products.length ? (
             products.map(product => {return(
                     <div className="mrd" key={product._id} >
-                        <Link to={'/products/' + product._id } style={{ color: 'inherit', textDecoration: 'none'}}>
+                        <Link to={'/products/' + product._id }  style={{ color: 'inherit', textDecoration: 'none', margin:0}}>
                             <div className="rdiv" >
                                     <div className="productImage">
-                                        <img className="img-thumbnail rounded float-start" alt={product.imgUrl} src={product.imgUrl} />
+                                        <img className="img-thumbnail rounded float-start" style={{border:'none'}} alt={product.imgUrl} src={product.imgUrl} />
                                     </div>
 
                                 <div className="productInfo" >
                                     <span>{product.name.toUpperCase()}</span><br/>
-                                    {/* <p className="text-muted home-reduce-margin"><button className="btn btn-success" type="button" >{product.rating} &#9734;</button> {product.ratedBy} Ratings and {product.reviewedBy} Reviews</p> */}
-                                    <p className="home-reduce-margin">{product.info.substring(0,300)}...</p>
+                                    <p className="text-muted home-reduce-margin"><button className="btn btn-success" type="button" >{ product.rating.length ? (this.calculateRating(product).toFixed(1)):(0) } &#9734;</button> {product.rating.length} Ratings and {product.reviews.length} Reviews</p>
+                                    <p className="home-reduce-margin p-desc">{product.info.substring(0,300)}...</p>
+
+                                    <div className="p-desc p-price">
+                                    <span>&#8377; {Math.round(product.price - (product.discount/100)*product.price)}</span>
+                                    <p className="home-reduce-margin"> <s>&#8377; {product.price}</s> &nbsp; {product.discount}% off</p>
+                                    </div>
+
+ 
                                 </div>
     
-                                <div className="productPrice">
+                                <div className="productPrice p-desc">
                                     <span>&#8377; {Math.round(product.price - (product.discount/100)*product.price)}</span><br/>
                                     <p className="home-reduce-margin"> <s>&#8377; {product.price}</s> &nbsp; {product.discount}% off</p>
-                                    { product.emiAvailable ? <p className="home-reduce-margin">EMI Available</p>: <p className="home-reduce-margin text-danger" >EMI Not Available</p> }
-                                    {product.inStock ? <p className="home-reduce-margin">In Stock</p> : <p className="home-reduce-margin text-danger" >Out of Stock</p>}
+                                    <b>{ product.emiAvailable ? <p className="home-reduce-margin text-info">EMI Available</p>: <p className="home-reduce-margin text-danger" >EMI Not Available</p> }
+                                    {product.inStock ? <p className="home-reduce-margin text-info">In Stock</p> : <p className="home-reduce-margin text-danger" >Out of Stock</p>}
+                                    </b>
                                 </div>
                             </div>
                         </Link>
